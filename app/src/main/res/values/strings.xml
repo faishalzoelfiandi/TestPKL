@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TestPKL</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="first_fragment">First fragment</string>
+    <string name="Detail_cuaca">Detail cuaca</string>
+    <string name="Detail_jam_cuaca">Perkiraan jam berikutnya</string>
+</resources>
