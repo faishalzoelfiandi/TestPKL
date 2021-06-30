@@ -15,6 +15,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 
+private const val TAG = "MainViewModel"
 
 class MainViewModel : ViewModel() {
 
@@ -36,24 +37,16 @@ class MainViewModel : ViewModel() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeWith(object : DisposableSingleObserver<WeatherModel>(){
-
-                    override fun onSuccess(value: WeatherModel?) {
-                        weather_data.value = value
-                        weather_error.value = false
-                        weather_loading.value = false
-                        Log.d (TAG,"On success : Success")
+                    override fun onSuccess(t: WeatherModel) {
+                        Log.d(TAG, "onSuccess: Success")
                     }
 
-                    override fun onError(e: Throwable?) {
+                    override fun onError(e: Throwable) {
                         weather_error.value = true
                         weather_loading.value = false
                         Log.e(TAG, "onError: " + e)
                     }
-                })
+                }))
 
-
-        )
-
-
+        }
     }
-}
